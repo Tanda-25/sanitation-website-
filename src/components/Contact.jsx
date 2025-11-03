@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { CONTACT_INFO, BUSINESS_HOURS } from '../config'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -42,8 +43,8 @@ const Contact = () => {
     
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required'
-    } else if (!/^[0-9]{10}$/.test(formData.phone.replace(/\s/g, ''))) {
-      newErrors.phone = 'Phone number must be 10 digits'
+    } else if (!/^(\+254|0)?[17]\d{8}$/.test(formData.phone.replace(/\s/g, ''))) {
+      newErrors.phone = 'Please enter a valid Kenyan mobile number'
     }
     
     if (!formData.service) {
@@ -82,7 +83,7 @@ const Contact = () => {
 
   const handleWhatsAppContact = () => {
     const message = `Hello SafiWorks!\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.service}\nMessage: ${formData.message}`
-    window.open(`https://wa.me/254700000000?text=${encodeURIComponent(message)}`, '_blank')
+    window.open(`https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank')
   }
 
   return (
@@ -110,7 +111,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-800 mb-1">Address</h4>
-                  <p className="text-gray-600">Mombasa, Kenya</p>
+                  <p className="text-gray-600">{CONTACT_INFO.address}</p>
                 </div>
               </div>
               
@@ -122,7 +123,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-800 mb-1">Phone</h4>
-                  <p className="text-gray-600">+254 700 000 000</p>
+                  <p className="text-gray-600">{CONTACT_INFO.phone}</p>
                 </div>
               </div>
               
@@ -134,7 +135,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-800 mb-1">Email</h4>
-                  <p className="text-gray-600">info@safiworks.co.ke</p>
+                  <p className="text-gray-600">{CONTACT_INFO.email}</p>
                 </div>
               </div>
               
@@ -154,9 +155,9 @@ const Contact = () => {
             <div className="mt-8">
               <h4 className="font-semibold text-gray-800 mb-4">Business Hours</h4>
               <div className="text-gray-600 space-y-2">
-                <p>Monday - Friday: 7:00 AM - 6:00 PM</p>
-                <p>Saturday: 8:00 AM - 4:00 PM</p>
-                <p>Sunday: Closed</p>
+                <p>{BUSINESS_HOURS.weekdays}</p>
+                <p>{BUSINESS_HOURS.saturday}</p>
+                <p>{BUSINESS_HOURS.sunday}</p>
               </div>
             </div>
           </div>

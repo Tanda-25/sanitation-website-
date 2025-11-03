@@ -1,4 +1,5 @@
 import React from 'react'
+import { CONTACT_INFO } from '../config'
 
 const Pricing = () => {
   const pricingPlans = [
@@ -51,7 +52,7 @@ const Pricing = () => {
 
   const handleWhatsAppInquiry = (plan) => {
     const message = `Hello SafiWorks! I'm interested in the ${plan} plan. Can you provide more information?`
-    window.open(`https://wa.me/254700000000?text=${encodeURIComponent(message)}`, '_blank')
+    window.open(`https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank')
   }
 
   return (

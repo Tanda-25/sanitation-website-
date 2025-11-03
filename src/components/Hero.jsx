@@ -1,8 +1,9 @@
 import React from 'react'
+import { CONTACT_INFO } from '../config'
 
 const Hero = () => {
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/254700000000?text=Hello%20SafiWorks!%20I%20would%20like%20to%20inquire%20about%20your%20services.', '_blank')
+    window.open(`https://wa.me/${CONTACT_INFO.whatsappNumber}?text=Hello%20SafiWorks!%20I%20would%20like%20to%20inquire%20about%20your%20services.`, '_blank')
   }
 
   return (

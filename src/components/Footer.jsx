@@ -1,4 +1,5 @@
 import React from 'react'
+import { CONTACT_INFO } from '../config'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -66,12 +67,12 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-2 text-gray-300">
-              <li>Mombasa, Kenya</li>
-              <li>+254 700 000 000</li>
-              <li>info@safiworks.co.ke</li>
+              <li>{CONTACT_INFO.address}</li>
+              <li>{CONTACT_INFO.phone}</li>
+              <li>{CONTACT_INFO.email}</li>
               <li>
                 <a 
-                  href="https://wa.me/254700000000" 
+                  href={`https://wa.me/${CONTACT_INFO.whatsappNumber}`}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-green-400 hover:text-green-300 transition-colors"
